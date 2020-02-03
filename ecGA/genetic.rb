@@ -31,7 +31,8 @@ class Genetic
 			end
 			puts ("#{i}世代目: 最高値#{fitness.max}")
 
-			TournamentSlection()	# トーナメント選択で勝ち上がった個体を格納
+			#TournamentSlection()	# トーナメント選択で勝ち上がった個体を格納
+			UpperSelection()
 			#puts "#{@tournaments}"
 			MPMSearch()	# MPM
 			CreateIndividuals()	# 新世代の個体を生成			
@@ -119,7 +120,7 @@ class Genetic
 				step_min_c_c[step] = linckages[step][0].c_c
 			elsif linckages[step][0].c_c > min_linckage.c_c	# 次のステップのc_cが前のステップのc_cより大きい時
 				puts "Find minimal"
-				puts "Step. #{step} : Minimal c_c #{step_min_c_c[step]}"
+				puts "Step. #{step} : Minimal c_c #{min_linckage.c_c}"
 				puts "Optimal Model : #{min_linckage.model}"
 				@min_linckage = min_linckage
 				break
@@ -173,8 +174,7 @@ class Genetic
 				total = 0
 				used_pattern = []
 
-				
-				puts "#{hash}"
+				#puts "#{hash}"
 				hash.each do | pattern, count |	# どのパターンを採用するかを決める
 					used_pattern = pattern.clone
 					total += count.quo(size).to_f
@@ -191,6 +191,20 @@ class Genetic
 			end
 
 			@individuals << ind
+		end
+
+	end
+
+	def UpperSelection	# 最強１０個
+
+		@tournaments.clear	# 初期化
+		i = 0
+		@individuals = @individuals.sort_by do | ind |
+			[ind.fitness, i+=1]
+		end
+
+		for i in 1..GET_SIZE do
+			@tournaments << @individuals[-1*i]
 		end
 
 	end

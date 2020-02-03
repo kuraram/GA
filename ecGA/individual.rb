@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 class Individual
     attr_accessor :chrom, :fitness
     

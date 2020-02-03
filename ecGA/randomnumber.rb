@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 #RandomNumber
 IM1 = 2147483563
 IM2 = 2147483399

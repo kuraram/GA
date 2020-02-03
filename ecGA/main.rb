@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 require "./genetic"
 
 if ARGV[0] == nil

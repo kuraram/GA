@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 require "./global"
 
 MIN =	0

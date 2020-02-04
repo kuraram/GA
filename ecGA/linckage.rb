@@ -50,9 +50,10 @@ class Linckage
 		size = tournaments.size
 		#puts "#{size}"
 		hash.each do | elm, count |
-			pk = count.quo(size).to_f
+			p1 = count.quo(size).to_f
+			p0 = 1 - p1
 			#puts "#{pk}"
-			total += (-1 * pk * Math.log2(pk))
+			total += (-1 * p1 * Math.log2(p1) -1 * p0 * Math.log2(p0))
 		end
 
 		return total

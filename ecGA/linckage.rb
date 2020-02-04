@@ -17,8 +17,9 @@ class Linckage
 	def CalcModelComplexity(tournaments)
 		
 		total = 0
-		@model.each{ | elm | total += (elm.size * (2**(elm.size) - 1)) }	# sigmaのとこ
-		c_m = Math.log2(INDIVIDUAL_NUM - 1) * total
+		#@model.each{ | elm | total += (elm.size * (2**(elm.size) - 1)) }	# sigmaのとこ
+		@model.each{ | elm | total +=  (2**(elm.size) - 1) }
+		c_m = Math.log2(INDIVIDUAL_NUM + 1) * total
 
 		#puts "c_m : #{c_m}"
 		return c_m
@@ -67,7 +68,7 @@ class Linckage
 			end
 			hash[tmp] += 1
 		end
-
+		#puts "#{hash}" if elm.size == 3
 		return hash
 	end
 

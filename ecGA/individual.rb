@@ -8,4 +8,10 @@ class Individual
 		@fitness = nil
 	end
 
+	def clone_ind(_ind)
+		ind = _ind.clone
+		ind.chrom = _ind.chrom.clone
+		ind.fitness = _ind.fitness
+		return ind
+	end
 end

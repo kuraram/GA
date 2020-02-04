@@ -52,7 +52,7 @@ class Genetic
 				else
 					ind.chrom[j] = 1
 				end
-				@seed -= 1
+				@seed -= 111
 			end
 			@individuals << ind
 		end
@@ -75,7 +75,7 @@ class Genetic
 
 			for j in 1..TOURNAMENT_SIZE do	# 10回戦のトーナメントを実行
 				random = (INDIVIDUAL_NUM * RandomNumber(@seed)).floor
-				@seed -= 1
+				@seed -= 111
 				
 				if j == 1
 					max_fitness = @individuals[random].fitness
@@ -85,6 +85,7 @@ class Genetic
 					max_ind = @individuals[random]
 				end
 			end
+			#puts "#{max_ind.fitness}"
 
 			@tournaments |= [max_ind]
 		end
@@ -121,7 +122,9 @@ class Genetic
 			elsif linckages[step][0].c_c > min_linckage.c_c	# 次のステップのc_cが前のステップのc_cより大きい時
 				puts "Find minimal"
 				puts "Step. #{step} : Minimal c_c #{min_linckage.c_c}"
+				puts " c_m #{min_linckage.c_m},  c_p #{min_linckage.c_p}"
 				puts "Optimal Model : #{min_linckage.model}"
+				puts "Linckage ::::\n #{min_linckage.MD}"
 				@min_linckage = min_linckage
 				break
 			end
@@ -170,7 +173,7 @@ class Genetic
 				#puts "#{elm}"
 				#puts "#{hash}"
 				random = RandomNumber(@seed)
-				@seed -= 1
+				@seed -= 111
 				total = 0
 				used_pattern = []
 
@@ -187,7 +190,7 @@ class Genetic
 					ind.chrom[position] = used_pattern.shift
 				end
 
-				#puts "#{ind.chrom}"
+				#puts "#{ind.fitness}"
 			end
 
 			@individuals << ind
@@ -204,7 +207,10 @@ class Genetic
 		end
 
 		for i in 1..GET_SIZE do
-			@tournaments << @individuals[-1*i]
+			clone_ind = Individual.new
+			clone_ind = clone_ind.clone_ind(@individuals[-1*i])
+			@tournaments << clone_ind
+			#puts "#{@tournaments[i-1].fitness}"
 		end
 
 	end

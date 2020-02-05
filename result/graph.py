@@ -4,8 +4,9 @@ import sys
 import re
 
 path = "./seed3"
+#path = "./seed6"
 #files = [path + "/cga.txt"]
-files = [path + "/simplega.txt", path + "/cga.txt"]
+files = [path + "/simplega.txt", path + "/cga.txt", path + "/ecga.txt"]
 
 
 data_dict = {}
@@ -33,7 +34,7 @@ for fil in files:
 for k, v in data_dict.items():
     #plt.clf()
     plt.scatter(time, v, s=10, alpha=0.5)
-    plt.ylabel("Fitness")
+    plt.ylabel("Highest Fitness")
     plt.xlabel("Generation")
     plt.grid(True)
     plt.savefig(path+"/graph.png")

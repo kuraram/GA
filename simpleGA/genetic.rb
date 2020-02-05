@@ -34,7 +34,8 @@ class Genetic
 			file = File.open('./result.csv', 'a')
 			file.puts "#{i}, #{fitness.max}"
 			file.close
-			puts "#{i}, #{fitness.max}"
+			#puts "#{i}, #{fitness.max}"
+			puts "#{fitness.max}"
 
 			RouletteSelection()
 			OnePointCrossover()

@@ -116,6 +116,10 @@ class Genetic
 			if step == 1
 				min_linckage = linckages[step][0]
 				step_min_c_c[step] = min_linckage.c_c
+				#puts "Step. #{step} : Minimal c_c #{min_linckage.c_c}"
+				#puts " c_m #{min_linckage.c_m},  c_p #{min_linckage.c_p}"
+				#puts "Optimal Model : #{min_linckage.model}"
+				#puts "Linckage ::::\n #{min_linckage.MD}"
 			elsif linckages[step][0].c_c < min_linckage.c_c	# 前のステップのc_cが次のステップのc_cより大きい時
 				min_linckage = linckages[step][0]
 				step_min_c_c[step] = linckages[step][0].c_c

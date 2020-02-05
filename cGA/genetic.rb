@@ -27,7 +27,8 @@ class Genetic
 				ind.fitness = FitnessFunc(ind.chrom)
 				fitness << ind.fitness
 			end
-			puts ("#{i}世代目: 最高値#{fitness.max}")
+			#puts ("#{i}世代目: 最高値#{fitness.max}")
+			puts ("#{fitness.max}")
 
 			CreateFinish?()	#cGAを終了するかどうか
 			return if @flag

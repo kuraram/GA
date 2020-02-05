@@ -51,10 +51,9 @@ class Linckage
 		#puts "#{size}"
 		hash.each do | elm, count |
 			p1 = count.quo(size).to_f
-			p1 = 0 if p1.nan?
 			p0 = 1 - p1
 			x = -1 * p1 * Math.log2(p1) -1 * p0 * Math.log2(p0)
-			x = 0 if x.nan?
+			x = 0 if x.nan?	# 真値が0となったときの処理
 			#puts "#{pk}"
 			total += x
 		end

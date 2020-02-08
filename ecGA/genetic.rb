@@ -7,7 +7,7 @@ require "./fitness"
 require "./linckage"
 
 class Genetic
-	attr_accessor :seed, :individuals, :p, :flag
+	attr_accessor :seed, :individuals, :tournaments, :p, :flag, :min_linckage
 
 	def initialize(seed)
 		@seed = seed    # seed値
@@ -141,7 +141,7 @@ class Genetic
 			next_models = []
 			#puts "#{pre_model}"
 			
-			k = 1
+			k = 0
 			for i in 0..(pre_model.size - 2) do
 				k += 1
 				for j in k..(pre_model.size - 1) do
